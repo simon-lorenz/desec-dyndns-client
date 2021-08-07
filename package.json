@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "pkg ddns.js --target arm64 --no-bytecode --public-packages \"*\" --public --output dist/ddns"
+    "build": "pkg index.js --target arm64 --no-bytecode --public-packages \"*\" --public --output dist/desec-dyndns-client"
   },
   "keywords": [],
   "author": "Simon Lorenz",
