@@ -18,9 +18,9 @@
   "dependencies": {
     "cron": "1.8.2",
     "joi": "17.4.2",
+    "jsonc-parser": "3.0.0",
     "node-fetch": "2.6.1",
     "pino": "6.13.0",
-    "pino-pretty": "5.1.2",
-    "strip-json-comments": "2.0.1"
+    "pino-pretty": "5.1.2"
   }
 }

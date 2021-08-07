@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const joi = require('joi')
-const stripJsonComments = require('strip-json-comments')
+const { stripComments } = require('jsonc-parser')
 
 const { logger } = require('./logger')
 
@@ -15,9 +15,9 @@ if (!fs.existsSync(configPath)) {
 let config
 
 try {
-	config = JSON.parse(stripJsonComments(fs.readFileSync(configPath, 'utf8')))
-} catch (error) {
-	logger.fatal({ error }, 'Could not parse config file')
+	config = JSON.parse(stripComments(fs.readFileSync(configPath, 'utf8')))
+} catch (err) {
+	logger.fatal({ err }, 'Could not parse config file')
 	return process.exit(1)
 }
 
