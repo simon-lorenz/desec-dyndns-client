@@ -14,7 +14,7 @@ async function run() {
 		} else {
 			logger.info(`Found new public IPv6: ${publicIPv6}`)
 			currentIp = publicIPv6
-			sendDynDNSUpdateRequest(publicIPv6)
+			await sendDynDNSUpdateRequest(publicIPv6)
 		}
 	} catch (err) {
 		logger.error({ err }, err.message)
@@ -38,12 +38,16 @@ async function sendDynDNSUpdateRequest(ip) {
 
 	const updateUrl = `${server}/?hostname=${domains.join(',')}&myip=${ip}`
 
-	await fetch(updateUrl, {
+	const res = await fetch(updateUrl, {
 		method: 'GET',
 		headers: { Authorization: `Basic ${Buffer.from(`${username}:${token}`).toString('base64')}` }
 	})
 
-	logger.info('DNS-Update successful!')
+	if (res.status === 200) {
+		logger.info('DNS-Update successful!')
+	} else {
+		throw new Error(`DNS-Update failed (${res.status})`)
+	}
 }
 
 module.exports = { run }
