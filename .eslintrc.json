@@ -1,0 +1,37 @@
+{
+	"plugins": ["prettier"],
+	"extends": "eslint:recommended",
+	"rules": {
+		"curly": ["error"],
+		"eqeqeq": ["error"],
+		"lines-between-class-members": ["error", "always"],
+		"no-console": "warn",
+		"no-eval": "error",
+		"no-mixed-spaces-and-tabs": "off",
+		"no-this-before-super": "error",
+		"no-throw-literal": "error",
+		"no-unused-vars": ["error", { "argsIgnorePattern": "h" }],
+		"no-useless-return": "error",
+		"no-var": "error",
+		"one-var": ["error", "never"],
+		"padding-line-between-statements": [
+			"error",
+			{ "blankLine": "always", "prev": "*", "next": "function" },
+			{ "blankLine": "always", "prev": "case", "next": "*" },
+			{ "blankLine": "always", "prev": "block-like", "next": "*"}
+		],
+		"prefer-const": "error",
+		"prefer-template": "error",
+		"prettier/prettier": "error",
+		"space-infix-ops": ["error"],
+		"strict": ["error", "never"]
+	},
+	"env": {
+		"es6": true,
+		"node": true,
+		"mocha": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 2018
+	}
+}
