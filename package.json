@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "pkg index.js --target arm64 --no-bytecode --public-packages \"*\" --public --output dist/desec-dyndns-client"
+    "build": "./build.sh"
   },
   "keywords": [],
   "author": "Simon Lorenz",
@@ -20,6 +20,7 @@
     "joi": "17.4.2",
     "node-fetch": "2.6.1",
     "pino": "6.13.0",
-    "pino-pretty": "5.1.2"
+    "pino-pretty": "5.1.2",
+    "strip-json-comments": "2.0.1"
   }
 }

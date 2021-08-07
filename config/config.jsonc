@@ -1,0 +1,20 @@
+{
+  // URL of a webservice that returns your public IPv6 address as plain text
+  "ipCheckUrl": "https://checkipv6.dedyn.io",
+
+  // The dyndns update server
+  "server": "https://update6.dedyn.io",
+
+  // Your deSEC username
+  "username": "<your-username>",
+
+  // Your deSEC authorization token (not password!)
+  "token": "<your-token>",
+
+  // A list of domains to update
+  "domains": ["<domains whose AAAA record you want to update>"],
+
+  // A cron pattern that controls how often your public IPv6 address will be checked.
+  // Keep potential rate limits of your IPv6 checker in mind.
+  "cron": "*/5 * * * *"
+}

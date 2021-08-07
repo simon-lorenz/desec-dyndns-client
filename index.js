@@ -29,9 +29,9 @@ async function run() {
 }
 
 async function getPublicIPv6() {
-	const { url } = config
+	const { ipCheckUrl } = config
 
-	const res = await fetch(url)
+	const res = await fetch(ipCheckUrl)
 
 	if (res.status === 200) {
 		return res.text()
@@ -41,13 +41,13 @@ async function getPublicIPv6() {
 }
 
 async function sendDynDNSUpdateRequest(ip) {
-	const { server, domains, username, password } = config
+	const { server, domains, username, token } = config
 
 	const updateUrl = `${server}/?hostname=${domains.join(',')}&myip=${ip}`
 
 	await fetch(updateUrl, {
 		method: 'GET',
-		headers: { Authorization: `Basic ${Buffer.from(`${username}:${password}`).toString('base64')}` }
+		headers: { Authorization: `Basic ${Buffer.from(`${username}:${token}`).toString('base64')}` }
 	})
 
 	logger.info('DNS-Update successful!')
