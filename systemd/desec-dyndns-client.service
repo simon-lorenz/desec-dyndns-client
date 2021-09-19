@@ -1,0 +1,11 @@
+[Unit]
+Description=Updates your IPv6 dyndns at desec.io
+
+[Service]
+Type=simple
+Restart=on-failure
+ExecStart=/usr/bin/desec-dyndns-client
+StandardOutput=file:/var/log/desec-dyndns-client.log
+
+[Install]
+WantedBy=multi-user.target
