@@ -4,7 +4,7 @@ const { stripComments } = require('jsonc-parser')
 
 const { logger } = require('./logger')
 
-const configPath = '/etc/desec-dyndns-client/config'
+const configPath = '/etc/desec-dyndns-client/config.jsonc'
 
 if (!fs.existsSync(configPath)) {
 	logger.fatal({ path: configPath }, 'Could not find config file')
